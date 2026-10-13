@@ -1,4 +1,9 @@
 {
+  "scripts": {
+    "dev": "slidev presentacion.md --open",
+    "build": "slidev build presentacion.md",
+    "export": "slidev export presentacion.md"
+  },
   "devDependencies": {
     "@slidev/cli": "^53.0.0",
     "@slidev/theme-default": "^0.25.0",
