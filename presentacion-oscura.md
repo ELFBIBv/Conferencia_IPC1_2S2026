@@ -66,6 +66,79 @@ Rompehielos: "¿Quién ha tenido que rehacer un proyecto desde cero porque ya no
 
 ---
 
+<div class="kicker">Quién presenta</div>
+
+# Perfil del conferencista
+
+<div class="grid grid-cols-2 gap-12">
+<div>
+
+<div class="display text-2xl font-semibold leading-tight">Alvaro Josué Morales Rodríguez</div>
+<div class="mono small accent mt-1">Full-Stack Developer &amp; Cloud Administrator</div>
+
+<div class="perfil-contacto mt-3">
+  <div><span>GitHub</span>github.com/ELFBIBv</div>
+  <div><span>LinkedIn</span>linkedin.com/in/alvaro-josue-morales</div>
+  <div><span>Correo</span>jm54336720@gmail.com</div>
+</div>
+
+<div class="mt-4">
+  <div class="flex justify-between items-baseline small">
+    <div>Ing. en Ciencias y Sistemas <span class="muted">· USAC</span></div>
+    <div class="accent font-semibold">9.º semestre</div>
+  </div>
+  <div class="perfil-barra mt-2"><div style="width: 90%"></div></div>
+  <div class="small mt-3">Tutor líder de computación <span class="muted">· TutoMath</span></div>
+</div>
+
+</div>
+<div>
+
+<div class="eyebrow">Habilidades clave</div>
+<div class="perfil-skills">
+  <div><span>Java / Go / Python</span><span>Intermedio</span></div>
+  <div><span>React / Node</span><span>Semi-avanzado</span></div>
+  <div><span>Docker / Linux</span><span>Semi-avanzado</span></div>
+  <div><span>AWS Cloud</span><span>Intermedio</span></div>
+  <div><span>Ciberseguridad</span><span>Intermedio</span></div>
+</div>
+
+</div>
+</div>
+
+<div class="eyebrow mt-5">Proyectos destacados</div>
+<div class="grid grid-cols-4 gap-6">
+  <div class="ruled">
+    <div class="num">01</div>
+    <h3>Infraestructura cloud</h3>
+    <div class="small muted">EC2, S3, API Gateway y DynamoDB en producción.</div>
+  </div>
+  <div class="ruled">
+    <div class="num">02</div>
+    <h3>Automatización</h3>
+    <div class="small muted">Bot de Discord para monitoreo y comandos remotos.</div>
+  </div>
+  <div class="ruled">
+    <div class="num">03</div>
+    <h3>IA integrada</h3>
+    <div class="small muted">Chatbot con entrada de audio y documentos.</div>
+  </div>
+  <div class="ruled">
+    <div class="num">04</div>
+    <h3>Data Warehouse</h3>
+    <div class="small muted">Esquema de constelación diseñado antes de los ETL.</div>
+  </div>
+</div>
+
+<!--
+Presentación personal breve, sin detenerse demasiado.
+Mencionar que todo lo que se verá hoy viene de proyectos reales: los patrones no son teoría, son lo que permitió que esos proyectos crecieran.
+El Data Warehouse es el mejor ejemplo de la charla: primero se diseñó el esquema de constelación y después se construyeron los flujos ETL.
+Mencionar TutoMath: "he estado del otro lado, explicándole esto a gente que va empezando".
+-->
+
+---
+
 <div class="kicker">Antes de empezar</div>
 
 # Una historia que tal vez conocen
@@ -1023,27 +1096,11 @@ Analogía extra: una planta purificadora de agua. El agua pasa por arena, carbó
 <div class="grid grid-cols-2 gap-10">
 <div>
 
-Un lenguaje de programación propio, con su intérprete y un IDE web para escribirlo y ejecutarlo.
-
-<div class="grid grid-cols-2 gap-x-6 mt-4">
-<div>
-
-- Tipos y variables
-- Vectores 1D y 2D
-- if y switch
-
-</div>
-<div>
-
-- while, for, loop
-- Funciones y recursión
-- Gráfica del AST
-
-</div>
+<div class="display text-xl leading-snug">
+La idea: crear <span class="hl">un lenguaje de programación propio</span> y un IDE web donde se escribe, se ejecuta y se ve su árbol.
 </div>
 
-<div class="eyebrow mt-6">Hecho con</div>
-<div class="small">React y el editor Monaco · Node, Express y TypeScript · Jison para el analizador</div>
+<div class="small muted mt-6">El reto no es el lenguaje en sí, sino cómo organizar el código para que pueda crecer: cada instrucción nueva no debería romper las anteriores.</div>
 
 </div>
 <div>
@@ -1071,8 +1128,7 @@ ejecutar main();
 </div>
 
 <!--
-TypeScript se parece mucho a Java: clases, interfaces, herencia. Por eso el código del proyecto se les va a hacer familiar.
-Este programa lo ejecuté con el intérprete real del proyecto.
+No hace falta entrar en todo lo que soporta el lenguaje. Lo importante es la intención y cómo está diseñado por dentro.
 -->
 
 ---
@@ -1086,33 +1142,29 @@ Este programa lo ejecuté con el intérprete real del proyecto.
 ```mermaid {scale: 0.75}
 %%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica, Arial, sans-serif','primaryColor':'#18181b','primaryBorderColor':'#d4d4d8','primaryTextColor':'#ececec','secondaryColor':'#202024','tertiaryColor':'#18181b','lineColor':'#9a9aa0','textColor':'#ececec','mainBkg':'#18181b','nodeBorder':'#d4d4d8','clusterBkg':'#18181b','clusterBorder':'#2a2a2e','edgeLabelBackground':'#0f0f11'}}}%%
 flowchart LR
-  F["Frontend<br/>React + editor Monaco"] -- "código" --> B["Backend<br/>Node + Express"]
-  B -- "salida, AST, errores, símbolos" --> F
+  F["Frontend<br/>IDE web"] -- "&nbsp;código&nbsp;" ---> B["Backend<br/>intérprete"]
+  B -- "&nbsp;resultados&nbsp;" ---> F
 ```
 
-<div class="eyebrow mt-6">Pipes & Filters · el código pasa por etapas y cada una hace una sola cosa</div>
+<div class="eyebrow mt-6">Pipes & Filters · dentro del servidor, el código pasa por etapas</div>
 
-```mermaid {scale: 0.62}
+```mermaid {scale: 0.7}
 %%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica, Arial, sans-serif','primaryColor':'#18181b','primaryBorderColor':'#d4d4d8','primaryTextColor':'#ececec','secondaryColor':'#202024','tertiaryColor':'#18181b','lineColor':'#9a9aa0','textColor':'#ececec','mainBkg':'#18181b','nodeBorder':'#d4d4d8','clusterBkg':'#18181b','clusterBorder':'#2a2a2e','edgeLabelBackground':'#0f0f11'}}}%%
 flowchart LR
-  SRC["Código<br/>fuente"] --> LEX["Léxico<br/>Jison lexer"]
-  LEX -- "tokens" --> PAR["Sintáctico<br/>LALR(1)"]
-  PAR -- "AST" --> P1["Pasada 1<br/>graph()"]
-  P1 --> P2["Pasada 2<br/>declarar"]
-  P2 --> P3["Pasada 3<br/>ejecutar"]
-  P1 -. "DOT" .-> R1["Gráfica del AST"]
-  P3 -.-> R2["Consola<br/>Errores<br/>Símbolos"]
+  SRC["Código<br/>fuente"] --> LEX["Léxico"]
+  LEX -- "tokens" --> PAR["Sintáctico"]
+  PAR -- "árbol (AST)" --> INT["Interpreter"]
+  INT --> R["Consola<br/>Errores<br/>Reportes"]
   classDef acc fill:#3a1e14,stroke:#ff6b3d,stroke-width:2px,color:#ececec
-  class LEX,PAR,P1,P2,P3 acc
+  class LEX,PAR,INT acc
 ```
 
 <div class="callout mt-4">
-Es el mismo patrón de la diapositiva anterior: texto, tokens, árbol, resultados. Para agregar un reporte nuevo basta con una etapa más; las demás no cambian.
+Cada etapa hace una sola cosa y le pasa su resultado a la siguiente. La última etapa es donde entra el patrón Interpreter.
 </div>
 
 <!--
-Cada etapa recibe el resultado de la anterior.
-La separación Cliente-Servidor también ayuda a escalar: el intérprete podría usarse desde otro cliente sin cambiar nada.
+Dos arquitecturas: Cliente-Servidor por fuera y Pipes & Filters por dentro.
 -->
 
 ---
@@ -1172,140 +1224,107 @@ Suma no sabe multiplicar: solo les pide a sus hijos que se evalúen y suma los r
 
 <div class="kicker">05 · Caso real</div>
 
-# De la gramática a las clases
+# Cómo lo usé en el proyecto
 
-<div class="grid grid-cols-2 gap-10">
+<div class="grid grid-cols-2 gap-10 items-center">
 <div>
 
-<div class="eyebrow">grammar.jison</div>
-
-```js
-expression
-  : expression '+' expression
-        { $$ = new BinaryExpr($1, $2, $3, @2); }
-  | ENTERO
-        { $$ = new LiteralExpr($1, 'INT', @1); }
-  ;
-while_stmt
-  : WHILE '(' expression ')' '{' statements '}'
-        { $$ = new WhileStmt($3, $6, @1); }
-  ;
+```mermaid {scale: 0.55}
+%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica, Arial, sans-serif','primaryColor':'#18181b','primaryBorderColor':'#d4d4d8','primaryTextColor':'#ececec','secondaryColor':'#202024','tertiaryColor':'#18181b','lineColor':'#9a9aa0','textColor':'#ececec','mainBkg':'#18181b','nodeBorder':'#d4d4d8','clusterBkg':'#18181b','clusterBorder':'#2a2a2e','edgeLabelBackground':'#0f0f11'}}}%%
+flowchart LR
+  E["Expression<br/>interpret()"] --> L["LiteralExpr"]
+  E --> BE["BinaryExpr"]
+  E --> V["VarLookUp"]
+  S["Statement<br/>interpret()"] --> W["WhileStmt"]
+  S --> I["IfStmt"]
+  S --> EC["Echo"]
+  classDef acc fill:#3a1e14,stroke:#ff6b3d,stroke-width:2px,color:#ececec
+  class E,S acc
 ```
 
-<div class="small muted mt-3">Cada regla hace <code>new</code> de una clase del AST. El analizador solo construye el árbol; no ejecuta nada.</div>
+<div class="text-center small muted">Dos clases abstractas y una clase por cada instrucción del lenguaje</div>
 
 </div>
-<div class="ruled">
+<div>
 
-### ¿Por qué así?
-
-- Un `while` repite código. Un árbol se puede recorrer muchas veces; el texto no.
-- Agregar una instrucción es una clase nueva y una regla, sin tocar las demás.
-- El mismo árbol sirve para ejecutar (`interpret()`) y para dibujarse (`graph()`).
-- Cada nodo guarda su fila y columna, así los errores dicen dónde están.
+- El analizador **solo construye el árbol**; no ejecuta nada.
+- Para correr el programa se llama `interpret()` en la raíz y cada nodo evalúa a sus hijos.
+- Un `while` simplemente vuelve a pedirle a su condición y a su cuerpo que se interpreten.
+- Agregar una instrucción nueva es **agregar una clase**, sin tocar las que ya existen.
 
 </div>
 </div>
 
 <!--
-La razón más importante: si ejecutara el código mientras lo lee, un while o una función no se podrían repetir. Por eso se construye primero un árbol y después se recorre.
-El segundo punto es escalabilidad otra vez: el lenguaje crece agregando clases, no modificando las que ya existen.
+Momento para la demo en vivo: escribir un programa en el IDE, ejecutarlo y mostrar la gráfica del árbol.
+La idea que deben llevarse: el lenguaje crece agregando clases, igual que con Factory Method.
 -->
 
 ---
 
 <div class="kicker">05 · Caso real</div>
 
-# El árbol real de `2 + 3 * x`
+# Un `while` como árbol
 
 <div class="grid grid-cols-5 gap-8">
 <div class="col-span-2">
 
 ```ts
-function void main() {
-    let x: int = 4;
-    echo 2 + 3 * x;
+int i = 1;
+while (i < 3) {
+    echo i * 2;
+    i++;
 }
-ejecutar main();
 ```
 
-<div class="output mt-3"><div class="eyebrow">Salida</div>14</div>
+<div class="mt-5">
 
-<div class="small muted mt-5">
-Este es el árbol que genera el proyecto con Graphviz. Marcada en color, la expresión.
+1. `While` le pide a su condición `i < 3` que se interprete.
+2. Si es `true`, interpreta cada hijo de `Statements`.
+3. Vuelve a preguntar la condición y repite.
+
 </div>
+
+<div class="small muted mt-4">El <code>While</code> no sabe comparar ni imprimir: solo coordina a sus hijos.</div>
 
 </div>
 <div class="col-span-3">
 
-```mermaid {scale: 0.45}
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica, Arial, sans-serif','primaryColor':'#18181b','primaryBorderColor':'#d4d4d8','primaryTextColor':'#ececec','secondaryColor':'#202024','tertiaryColor':'#18181b','lineColor':'#9a9aa0','textColor':'#ececec','mainBkg':'#18181b','nodeBorder':'#d4d4d8','clusterBkg':'#18181b','clusterBorder':'#2a2a2e','edgeLabelBackground':'#0f0f11'}}}%%
-flowchart TD
-  root["root"] --> n0["Funcion"]
-  n0 --> n1["Tipo:VOID"]
-  n0 --> n2["Nombre:main"]
-  n0 --> n3["Parametros: Ninguno"]
-  n0 --> n4["Cuerpo"]
-  n4 --> n5["Declaracion"]
-  n5 --> n6["Tipo:INT"]
-  n5 --> n7["identificador:x"]
-  n5 --> n8["value:4"]
-  n4 --> n9["Echo"]
-  n9 --> n10["operacion binaria: +"]
-  n10 --> n11["value:2"]
-  n10 --> n12["operacion binaria: *"]
-  n12 --> n13["value:3"]
-  n12 --> n14["Variable: x"]
-  root --> n15["Ejecutar"]
-  n15 --> n16["llamar function"]
-  n16 --> n17["id:main"]
-  classDef acc fill:#3a1e14,stroke:#ff6b3d,stroke-width:2px,color:#ececec
-  class n10,n11,n12,n13,n14 acc
-```
+<svg viewBox="0 0 580 340" class="ast-tree w-full">
+<defs><marker id="ast-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="ast-arrowhead"/></marker></defs>
+<g class="ast-node"><rect x="230" y="6" width="120" height="36" rx="3"/><text x="290" y="28">While</text></g>
+<g v-click><path class="ast-edge" d="M290,42 V60 H140 V76" marker-end="url(#ast-arrow)"/><g class="ast-node acc"><rect x="65" y="78" width="150" height="36" rx="3"/><text x="140" y="100">operacion binaria: &lt;</text></g></g>
+<g v-click><path class="ast-edge" d="M140,114 V132 H70 V148" marker-end="url(#ast-arrow)"/><g class="ast-node acc"><rect x="10" y="150" width="120" height="36" rx="3"/><text x="70" y="172">Variable: i</text></g></g>
+<g v-click><path class="ast-edge" d="M140,114 V132 H210 V148" marker-end="url(#ast-arrow)"/><g class="ast-node acc"><rect x="150" y="150" width="120" height="36" rx="3"/><text x="210" y="172">value:3</text></g></g>
+<g v-click><path class="ast-edge" d="M290,42 V60 H440 V76" marker-end="url(#ast-arrow)"/><g class="ast-node"><rect x="380" y="78" width="120" height="36" rx="3"/><text x="440" y="100">Statements</text></g></g>
+<g v-click><path class="ast-edge" d="M440,114 V132 H360 V148" marker-end="url(#ast-arrow)"/><g class="ast-node"><rect x="300" y="150" width="120" height="36" rx="3"/><text x="360" y="172">Echo</text></g></g>
+<g v-click><path class="ast-edge" d="M360,186 V220" marker-end="url(#ast-arrow)"/><g class="ast-node acc"><rect x="285" y="222" width="150" height="36" rx="3"/><text x="360" y="244">operacion binaria: *</text></g></g>
+<g v-click><path class="ast-edge" d="M360,258 V276 H290 V292" marker-end="url(#ast-arrow)"/><g class="ast-node acc"><rect x="230" y="294" width="120" height="36" rx="3"/><text x="290" y="316">Variable: i</text></g></g>
+<g v-click><path class="ast-edge" d="M360,258 V276 H430 V292" marker-end="url(#ast-arrow)"/><g class="ast-node acc"><rect x="370" y="294" width="120" height="36" rx="3"/><text x="430" y="316">value:2</text></g></g>
+<g v-click><path class="ast-edge" d="M440,114 V132 H510 V148" marker-end="url(#ast-arrow)"/><g class="ast-node"><rect x="450" y="150" width="120" height="36" rx="3"/><text x="510" y="172">Incremento</text></g></g>
+<g v-click><path class="ast-edge" d="M510,186 V220" marker-end="url(#ast-arrow)"/><g class="ast-node"><rect x="450" y="222" width="120" height="36" rx="3"/><text x="510" y="244">identificador:i</text></g></g>
+</svg>
+
+<div class="text-center small muted">En color, las expresiones: lo que devuelve un valor</div>
 
 </div>
 </div>
 
 <!--
-Momento ideal para la demo en vivo: escribir este código en el IDE, presionar Ejecutar y mostrar la gráfica, la tabla de errores y la de símbolos.
+Los nombres de los nodos son los mismos que genera el proyecto con graph().
+La condición es una expresión (BinaryExpr), y adentro hay una instrucción con una expresión (Echo con i * 2) y una instrucción sencilla (Incremento).
 -->
 
----
-
-<div class="kicker">05 · Caso real</div>
-
-# La recursividad detrás
-
-<div class="grid grid-cols-2 gap-10 items-center">
-<div>
-
-```mermaid {scale: 0.8}
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica, Arial, sans-serif','primaryColor':'#18181b','primaryBorderColor':'#d4d4d8','primaryTextColor':'#ececec','secondaryColor':'#202024','tertiaryColor':'#18181b','lineColor':'#9a9aa0','textColor':'#ececec','mainBkg':'#18181b','nodeBorder':'#d4d4d8','clusterBkg':'#18181b','clusterBorder':'#2a2a2e','edgeLabelBackground':'#0f0f11'}}}%%
-flowchart TD
-  P("+ · ⑤") --> A("2 · ①")
-  P --> M("* · ④")
-  M --> B("3 · ②")
-  M --> X("x · ③")
-  classDef acc fill:#3a1e14,stroke:#ff6b3d,stroke-width:2px,color:#ececec
-  class P,M acc
-```
-
-<div class="text-center small muted">Orden de evaluación: primero los hijos, luego el padre</div>
-
-</div>
-<div>
-
-- Cada nodo llama a `interpret()` de sus hijos. Eso es **recursión estructural**: sigue la forma del árbol.
-- **Caso base:** las hojas (números y variables) ya no llaman a nadie.
-- El lenguaje también acepta funciones recursivas: `factorial(5)` crea cinco entornos, uno por llamada.
-- Si la recursión es demasiado profunda se acaba la pila de Node.js: `factorial(n = 20000)` termina en `RangeError`.
-
-</div>
-</div>
-
-<!--
-Esto es lo único que necesitan llevarse de la recursión: el árbol es recursivo, así que la forma natural de recorrerlo también lo es.
--->
+<style>
+.ast-tree { font-family: 'Segoe UI', Helvetica, Arial, sans-serif; }
+.ast-node rect { fill: #ffffff; stroke: var(--fg); stroke-width: 1; }
+.ast-node.acc rect { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 2; }
+.ast-node text { fill: var(--fg); font-size: 12.5px; text-anchor: middle; }
+.ast-edge { fill: none; stroke: var(--muted); stroke-width: 1.3; }
+.ast-arrowhead { fill: var(--muted); }
+html.dark .ast-node rect { fill: var(--surface); stroke: #d4d4d8; }
+html.dark .ast-node.acc rect { fill: var(--accent-soft); stroke: var(--accent); }
+</style>
 
 ---
 
@@ -1336,7 +1355,7 @@ Esto es lo único que necesitan llevarse de la recursión: el árbol es recursiv
   <div class="ruled">
     <div class="num">04</div>
     <div class="font-semibold">Interpreter</div>
-    <div class="small muted mt-1">El lenguaje crece agregando clases; la recursión hace el resto.</div>
+    <div class="small muted mt-1">El lenguaje crece agregando clases, sin tocar las que ya existen.</div>
   </div>
 </div>
 
