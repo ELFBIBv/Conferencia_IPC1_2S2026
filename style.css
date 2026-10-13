@@ -490,6 +490,52 @@ html.dark {
   stroke-dasharray: 4 3;
 }
 
+/* perfil del conferencista */
+.perfil-contacto > div {
+  display: flex;
+  gap: 0.8rem;
+  padding: 0.22rem 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+}
+
+.perfil-contacto > div > span {
+  width: 4.2rem;
+  flex-shrink: 0;
+  color: var(--muted);
+}
+
+.perfil-barra {
+  height: 4px;
+  border-radius: 2px;
+  background: var(--rule);
+}
+
+.perfil-barra > div {
+  height: 100%;
+  border-radius: 2px;
+  background: var(--accent);
+}
+
+.perfil-skills {
+  border-top: 1.5px solid var(--fg);
+}
+
+.perfil-skills > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0.38rem 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: 0.9rem;
+}
+
+.perfil-skills > div > span:last-child {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
 /* portada */
 .cover-title {
   font-family: 'Space Grotesk', 'Inter', sans-serif;

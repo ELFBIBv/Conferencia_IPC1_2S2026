@@ -8,7 +8,7 @@ info: |
   Charla introductoria para estudiantes que están aprendiendo a programar en Java.
 author: Alvaro Josué Morales Rodríguez
 keywords: patrones de diseño,arquitectura,factory method,pipes and filters,interpreter
-colorSchema: light
+colorSchema: auto
 transition: slide-left
 mdc: true
 fonts:
@@ -983,24 +983,20 @@ main ya no hace new Email() ni new Sms(). Trabaja con Notificador y nada más.
 <div class="eyebrow">Creadores</div>
 
 ```mermaid {scale: 0.62}
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica, Arial, sans-serif','primaryColor':'#ffffff','primaryBorderColor':'#16161a','primaryTextColor':'#16161a','secondaryColor':'#f1efe9','tertiaryColor':'#ffffff','lineColor':'#6b6b70','textColor':'#16161a','mainBkg':'#ffffff','nodeBorder':'#16161a','clusterBkg':'#f1efe9','clusterBorder':'#e3e0d9','edgeLabelBackground':'#faf9f6'}}}%%
 flowchart BT
   NE["NotificadorEmail"] --> N["Notificador «abstract»"]
   NS["NotificadorSms"] --> N
   NT["NotificadorTelegram (nuevo)"] --> N
-  classDef acc fill:#fbe3da,stroke:#e4572e,stroke-width:2px,color:#16161a
   class NT acc
 ```
 
 <div class="eyebrow mt-4">Productos</div>
 
 ```mermaid {scale: 0.62}
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica, Arial, sans-serif','primaryColor':'#ffffff','primaryBorderColor':'#16161a','primaryTextColor':'#16161a','secondaryColor':'#f1efe9','tertiaryColor':'#ffffff','lineColor':'#6b6b70','textColor':'#16161a','mainBkg':'#ffffff','nodeBorder':'#16161a','clusterBkg':'#f1efe9','clusterBorder':'#e3e0d9','edgeLabelBackground':'#faf9f6'}}}%%
 flowchart BT
   E["Email"] --> I["Notificacion «interface»"]
   S["Sms"] --> I
   T["Telegram (nuevo)"] --> I
-  classDef acc fill:#fbe3da,stroke:#e4572e,stroke-width:2px,color:#16161a
   class T acc
 ```
 
@@ -1045,13 +1041,11 @@ Este es el nivel de nieve: Telegram es el yeti y NotificadorTelegram es el nivel
 Un patrón de arquitectura que no es MVC: los datos pasan por una línea de ensamblaje.
 
 ```mermaid {scale: 0.72}
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica, Arial, sans-serif','primaryColor':'#ffffff','primaryBorderColor':'#16161a','primaryTextColor':'#16161a','secondaryColor':'#f1efe9','tertiaryColor':'#ffffff','lineColor':'#6b6b70','textColor':'#16161a','mainBkg':'#ffffff','nodeBorder':'#16161a','clusterBkg':'#f1efe9','clusterBorder':'#e3e0d9','edgeLabelBackground':'#faf9f6'}}}%%
 flowchart LR
   S[("Fuente<br/>de datos")] -- "pipe" --> F1["Filtro 1<br/>transforma"]
   F1 -- "pipe" --> F2["Filtro 2<br/>transforma"]
   F2 -- "pipe" --> F3["Filtro 3<br/>transforma"]
   F3 -- "pipe" --> D[("Destino")]
-  classDef acc fill:#fbe3da,stroke:#e4572e,stroke-width:2px,color:#16161a
   class F1,F2,F3 acc
 ```
 
@@ -1140,7 +1134,6 @@ No hace falta entrar en todo lo que soporta el lenguaje. Lo importante es la int
 <div class="eyebrow">Cliente-Servidor · el navegador manda el código y el servidor lo interpreta</div>
 
 ```mermaid {scale: 0.75}
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica, Arial, sans-serif','primaryColor':'#ffffff','primaryBorderColor':'#16161a','primaryTextColor':'#16161a','secondaryColor':'#f1efe9','tertiaryColor':'#ffffff','lineColor':'#6b6b70','textColor':'#16161a','mainBkg':'#ffffff','nodeBorder':'#16161a','clusterBkg':'#f1efe9','clusterBorder':'#e3e0d9','edgeLabelBackground':'#faf9f6'}}}%%
 flowchart LR
   F["Frontend<br/>IDE web"] -- "&nbsp;código&nbsp;" ---> B["Backend<br/>intérprete"]
   B -- "&nbsp;resultados&nbsp;" ---> F
@@ -1149,13 +1142,11 @@ flowchart LR
 <div class="eyebrow mt-6">Pipes & Filters · dentro del servidor, el código pasa por etapas</div>
 
 ```mermaid {scale: 0.7}
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica, Arial, sans-serif','primaryColor':'#ffffff','primaryBorderColor':'#16161a','primaryTextColor':'#16161a','secondaryColor':'#f1efe9','tertiaryColor':'#ffffff','lineColor':'#6b6b70','textColor':'#16161a','mainBkg':'#ffffff','nodeBorder':'#16161a','clusterBkg':'#f1efe9','clusterBorder':'#e3e0d9','edgeLabelBackground':'#faf9f6'}}}%%
 flowchart LR
   SRC["Código<br/>fuente"] --> LEX["Léxico"]
   LEX -- "tokens" --> PAR["Sintáctico"]
   PAR -- "árbol (AST)" --> INT["Interpreter"]
   INT --> R["Consola<br/>Errores<br/>Reportes"]
-  classDef acc fill:#fbe3da,stroke:#e4572e,stroke-width:2px,color:#16161a
   class LEX,PAR,INT acc
 ```
 
@@ -1200,13 +1191,11 @@ class Suma implements Expresion {        // nodo
 <div class="col-span-2">
 
 ```mermaid {scale: 0.75}
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica, Arial, sans-serif','primaryColor':'#ffffff','primaryBorderColor':'#16161a','primaryTextColor':'#16161a','secondaryColor':'#f1efe9','tertiaryColor':'#ffffff','lineColor':'#6b6b70','textColor':'#16161a','mainBkg':'#ffffff','nodeBorder':'#16161a','clusterBkg':'#f1efe9','clusterBorder':'#e3e0d9','edgeLabelBackground':'#faf9f6'}}}%%
 flowchart TD
   S("Suma<br/>+") --> N2("Numero<br/>2")
   S --> M("Multiplicacion<br/>*")
   M --> N3("Numero<br/>3")
   M --> N4("Numero<br/>4")
-  classDef acc fill:#fbe3da,stroke:#e4572e,stroke-width:2px,color:#16161a
   class S,M acc
 ```
 
@@ -1230,7 +1219,6 @@ Suma no sabe multiplicar: solo les pide a sus hijos que se evalúen y suma los r
 <div>
 
 ```mermaid {scale: 0.55}
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica, Arial, sans-serif','primaryColor':'#ffffff','primaryBorderColor':'#16161a','primaryTextColor':'#16161a','secondaryColor':'#f1efe9','tertiaryColor':'#ffffff','lineColor':'#6b6b70','textColor':'#16161a','mainBkg':'#ffffff','nodeBorder':'#16161a','clusterBkg':'#f1efe9','clusterBorder':'#e3e0d9','edgeLabelBackground':'#faf9f6'}}}%%
 flowchart LR
   E["Expression<br/>interpret()"] --> L["LiteralExpr"]
   E --> BE["BinaryExpr"]
@@ -1238,7 +1226,6 @@ flowchart LR
   S["Statement<br/>interpret()"] --> W["WhileStmt"]
   S --> I["IfStmt"]
   S --> EC["Echo"]
-  classDef acc fill:#fbe3da,stroke:#e4572e,stroke-width:2px,color:#16161a
   class E,S acc
 ```
 
